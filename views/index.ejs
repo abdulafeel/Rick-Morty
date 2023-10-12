@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Website</title>
+      <link rel="stylesheet" href="/styles/main.css">
+  
+</head>
+
+<body>
+  <% if(locals.error){ %>
+    <div class="error-container">
+  <img class="error" src="images/404.jpg" alt="Page Not Found">
+  </div>
+  <% }else{ %>
+          <h1>RICK & MORTY</h1>
+ <div class="card-container">  
+    <% for(var i=0;i<18;i++){ %>
+    <div class="card <%= i%>" >
+      <img src="<%= data[i].image %>" alt="">
+      <div class="card-body">
+        <div class="heading">
+      <h2><%= data[i].name.toUpperCase()  %> </h2>
+      <p><%= data[i].gender  %> - <%= data[i].status  %></p>
+      </div>
+    
+      <div class="species">
+      <p>Species:  </p>
+      <span><%= data[i].species  %></span>
+      </div>
+
+      <div class="location">
+      <p>Last known location :   </p> 
+        <span><%= data[i].location.name  %> </span>
+        </div>
+    
+   
+     
+      </div>
+    </div>
+   
+    <% } %>
+    </div>
+<% } %>
+</body>
+
+</html>
